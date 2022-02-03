@@ -2,10 +2,10 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 
-public class minHeap { 
+public class genericMinHeap { 
   
-  public static class myPriorityQueue {
-    ArrayList<Integer> data;
+  public static class myPriorityQueue<T> {
+    ArrayList<T> data;
 
     public myPriorityQueue() {
       data = new ArrayList<>();
@@ -17,17 +17,17 @@ public class minHeap {
     // }
     // -> above contstructor is of nlogn, write constructor so that it can be done in O(n), where n = no. of nodes on heap
     // solution
-     public myPriorityQueue(int[] arr) {
-         for(int a: arr) {
-             data.add(a);
-         }
+    //  public myPriorityQueue(T[] arr) {
+    //      for(int a: arr) {
+    //          data.add(a);
+    //      }
 
-         for(int i = (data.size()/2)-1; i>=0; i--) {
-             downheapify(i);
-         }
-     }
+    //      for(int i = (data.size()/2)-1; i>=0; i--) {
+    //          downheapify(i);
+    //      }
+    //  }
 
-    public void add(int val) {
+    public void add(T val) {
       // write your code here
       data.add(val);
       upHeapify(data.size()-1);
@@ -79,8 +79,8 @@ public class minHeap {
     }
 
     public void swap(int i, int j) {
-      int ith = data.get(i);
-      int jth = data.get(j);
+      T ith = data.get(i);
+      T jth = data.get(j);
 
       data.set(i, jth);
       data.set(j, ith);
